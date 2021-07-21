@@ -19,11 +19,21 @@ input.onButtonPressed(Button.B, function () {
 let skud: game.LedSprite = null
 let fjende: game.LedSprite = null
 let plads = 0
+basic.showLeds(`
+    . . # . .
+    . . . . .
+    . . . . .
+    . . # . .
+    . # # # .
+    `)
 plads = 2
 let fjende_plads = 2
 fjende = game.createSprite(fjende_plads, 0)
 let fjende_retning = 1
-let helt = game.createSprite(2, 4)
+let helt = game.createSprite(2, 3)
+let helt2 = game.createSprite(2, 4)
+let helt3 = game.createSprite(1, 4)
+let helt4 = game.createSprite(3, 4)
 loops.everyInterval(1000, function () {
     if (fjende_plads == 4) {
         fjende_retning = -1
@@ -34,4 +44,7 @@ loops.everyInterval(1000, function () {
     fjende_plads += fjende_retning
     fjende.set(LedSpriteProperty.X, fjende_plads)
     helt.set(LedSpriteProperty.X, plads)
+    helt2.set(LedSpriteProperty.X, plads)
+    helt3.set(LedSpriteProperty.X, plads - 1)
+    helt4.set(LedSpriteProperty.X, plads + 1)
 })
